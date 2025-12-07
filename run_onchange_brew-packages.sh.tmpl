@@ -1,0 +1,107 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+set -eufo pipefail
+
+brew bundle --file=/dev/stdin <<EOF
+brew "atuin"				# history and script search/runner
+brew "bat"				# better 'cat'
+brew "bottom"				# better 'top'
+brew "carapace"				# command argument completer
+brew "croc"				# command line file sharing
+brew "csvlens"				# csv parser utility
+brew "d2"				# diagramming tool
+brew "doggo"				# DNS client
+brew "eza"				# 'ls' replacement
+brew "fd"				# 'find' replacement
+brew "fish"				# shell w/ nice to haves
+brew "fzf"				# very fast fuzzy search utility
+brew "gh"				# github command line tool
+brew "git"				# version control
+brew "git-delta"			# better 'git diff' with syntax highlighting
+brew "grex"				# command line regex builder
+brew "hurl"				# command line http testing tool
+brew "jj"				# git compatible version control w/ better dx flow
+brew "jql"				# faster 'jq' (json parsing tool)
+brew "jrnl"				# command line journaling tool
+brew "ksdme/tap/ut"			# command line dev utilities toolkit
+brew "mas"				# mac app store command line tool
+brew "mdfried"				# command line markdown preview
+brew "mise"				# dev tool version manager with env and task runner
+brew "monolith"				# all-in-one website downloader
+brew "neovim"				# 'vi' replacement / the modern command line editor
+brew "rage"				# faster 'age' (encryption tool)
+brew "ripgrep"				# 'grep' replacement
+brew "starship"				# fast shell prompt
+brew "task"				# command line task manager
+brew "tlrc"				# 'man' replacement
+brew "typst"				# markup documentation tool
+brew "xh"				# 'curl' replacement
+brew "zoxide"				# 'cd' replacement and directory jumper
+{{- if eq .chezmoi.hostname "knowhere" }}
+brew "duckdb"				# super fast embeddable analytical db
+brew "ffmpeg"				# video compression tool
+brew "imagemagick"			# image compression tool
+brew "ollama"				# localized ai runner
+brew "rnr"				# bulk file renaming tool
+brew "tailscale"			# wireguard vpn utility
+brew "yt-dlp"				# video download tool
+{{- end }}
+
+cask "1password"			# 1Password password manager
+cask "1password-cli"			# 1Password cli tool
+cask "appcleaner"			# macOS application deep uninstall utility
+cask "atuin-desktop"			# atuin desktop client (see above)
+cask "claude"				# claude AI interface
+cask "docker-desktop"			# docker container runner (includes docker cli)
+cask "font-jetbrains-mono-nerd-font"	# JetBrains mono font for coding
+cask "ghostty"				# the best terminal emulator
+cask "google-chrome"			# google's web browser (work)
+cask "juxtacode"			# 3-way mergetool
+cask "keka"				# archiver utility
+cask "monaspace-nerd-font"		# Github mono font for coding
+cask "monitorcontrol"			# advanced monitor settings tool
+cask "nikitabobko/tap/aerospace"	# tiling window manager for macos
+cask "raycast"				# quick command/application runner
+cask "slack"				# modern chat client (work)
+cask "yaak"				# http client testing tool
+cask "zed"				# fast IDE
+cask "zoom"				# video calls (work)
+{{- if eq .chezmoi.hostname "knowhere" }}
+cask "aqua-voice"			# speech to text ai
+cask "arq"				# scheduled backup creation app
+cask "bartender"			# menubar organizer
+cask "claude-code"			# claude AI coding agent
+cask "cleanshot"			# excellent macos screenshot tool
+cask "discord"				# chat app for gaming
+cask "duckduckgo"			# duckduckgo privacy web browser
+cask "firefox"				# mozilla web browser
+cask "font-atkinson-hyperlegible"	# great reading font
+cask "font-ia-writer-duo"		# iA writer based font
+cask "font-ia-writer-mono"		# iA writer based font
+cask "font-ia-writer-quattro"		# iA writer based font
+cask "font-inter"			# gorgeous sans-serif font
+cask "font-merriweather"		# great serif font
+cask "font-quicksand"			# another pretty sans-serif font
+cask "garmin-express"			# garmin watch tool for downloading stats
+cask "godot"				# game creation engine/ide
+cask "iina"				# open source media player
+cask "imageoptim"			# image optimizer
+cask "macwhisper"			# ai audio transcription tool
+cask "micro-snitch"			# webcam and audio recorder monitoring tool
+cask "mochi"				# flashcard anki system tool
+cask "motrix"				# multi-downloader tool
+cask "mullvad-vpn"			# privacy focused vpn
+cask "naps2"				# open source scanning software
+cask "obsidian"				# best open source second-brain/notetaking app
+cask "qflipper"				# flipper zero configuration tool
+cask "spotify"				# music streaming
+cask "steam"				# video game storefront
+cask "tableplus"			# multiple db client
+cask "todoist-app"			# todos manager
+cask "tor-browser"			# privacy focused tor web browser
+cask "tresorit"				# cloud file storage
+cask "ungoogled-chromium"		# google chrome without the google
+cask "zen"				# firefox-based alternative web browser
+{{- end }}
+EOF
+{{ end -}}
